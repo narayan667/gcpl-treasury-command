@@ -1,0 +1,263 @@
+/* ==========================================================================
+   GCPL TREASURY COMMAND - CONSOLE REGISTER STYLES
+   Monolithic Infrastructure UI: Single-Pane Estate View & Docs Pane
+   Conforms to PRD Section 7.2.2 & Reference Image 6 Pattern
+   ========================================================================== */
+
+.console-layout {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  background: var(--bg-0);
+  overflow: hidden;
+  font-family: var(--font-console);
+}
+
+/* Left & Center: Single-Pane Architecture Map */
+.console-main-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-right: 1px solid var(--line-2);
+}
+
+.console-toolbar {
+  height: 38px;
+  background: var(--bg-1);
+  border-bottom: 1px solid var(--line-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.console-path-title {
+  font-family: var(--font-console-mono);
+  font-size: 11px;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.console-view-tabs {
+  display: flex;
+  gap: 2px;
+}
+
+.console-tab-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-terminal);
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  color: var(--text-2);
+  cursor: pointer;
+}
+
+.console-tab-btn.active {
+  background: var(--bg-3);
+  color: var(--text-1);
+  border: 1px solid var(--line-2);
+}
+
+.console-estate-canvas {
+  flex: 1;
+  overflow: auto;
+  padding: 20px;
+  background: #090B0F;
+  display: flex;
+  gap: 24px;
+}
+
+/* Structural Columns (ERPs -> Integration -> Core -> Banks -> Reporting) */
+.estate-column {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.estate-col-title {
+  font-family: var(--font-terminal);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line-1);
+}
+
+/* Type-Colored Structural Node Card (Image 6 Analogue) */
+.infra-node-card {
+  background: var(--bg-1);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  position: relative;
+}
+
+.infra-node-card:hover {
+  border-color: var(--line-3);
+  background: var(--bg-2);
+}
+
+.infra-node-card.selected {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.infra-node-card.erp { border-left: 3px solid var(--cmp-erp); }
+.infra-node-card.integration { border-left: 3px solid var(--cmp-integration); }
+.infra-node-card.core { border-left: 3px solid var(--cmp-core); }
+.infra-node-card.bank { border-left: 3px solid var(--cmp-bank); }
+.infra-node-card.reporting { border-left: 3px solid var(--cmp-reporting); }
+
+.infra-node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.infra-node-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-1);
+}
+
+.infra-node-status {
+  font-family: var(--font-terminal);
+  font-size: 9px;
+  padding: 1px 4px;
+  border-radius: var(--radius-xs);
+}
+
+.infra-attr-line {
+  font-family: var(--font-console-mono);
+  font-size: 10px;
+  color: var(--text-2);
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right Persistent Documentation Pane (Image 6 Pattern) */
+.console-docs-pane {
+  width: 380px;
+  background: var(--bg-1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.docs-pane-header {
+  padding: 12px 16px;
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--line-1);
+  font-family: var(--font-terminal);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-1);
+  letter-spacing: 0.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.docs-pane-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.docs-section-title {
+  font-family: var(--font-terminal);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin: 14px 0 8px 0;
+  letter-spacing: 1px;
+}
+
+.docs-desc-text {
+  font-size: 12px;
+  color: var(--text-2);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.docs-attr-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.docs-attr-item {
+  background: var(--bg-2);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-xs);
+  padding: 8px 10px;
+}
+
+.docs-attr-title {
+  font-family: var(--font-console-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 3px;
+}
+
+.docs-attr-type {
+  color: var(--accent);
+  font-weight: normal;
+}
+
+.docs-attr-def {
+  font-size: 11px;
+  color: var(--text-3);
+  line-height: 1.4;
+}
+
+/* Banking Lens Matrix Table */
+.console-table-view {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+}
+
+.console-dense-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  font-family: var(--font-console-mono);
+}
+
+.console-dense-table th {
+  background: var(--bg-2);
+  color: var(--text-3);
+  text-align: left;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--line-2);
+  position: sticky;
+  top: 0;
+}
+
+.console-dense-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--line-1);
+  color: var(--text-2);
+}
+
+.console-dense-table tr:hover {
+  background: var(--bg-3);
+  color: var(--text-1);
+}

@@ -1,0 +1,339 @@
+/* ==========================================================================
+   GCPL TREASURY COMMAND - BRIEF REGISTER STYLES
+   Semi-Maximalist UI: CFO Brief, Committee Workspace, Onboarding Moving Truck
+   Conforms to PRD Section 7.2.4 & Reference Image 8 Pattern
+   ========================================================================== */
+
+.brief-layout {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  background: var(--brief-cream);
+  overflow-y: auto;
+  font-family: var(--brief-body);
+  color: var(--brief-ink);
+  padding: 28px 36px;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Header & Executive Navigation */
+.brief-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 3px solid var(--brief-ink);
+  padding-bottom: 18px;
+}
+
+.brief-title-block h1 {
+  font-family: var(--font-brief-display);
+  font-size: 44px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  color: var(--brief-cobalt);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brief-subheading {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4A453A;
+  margin-top: 6px;
+}
+
+.brief-nav-strip {
+  display: flex;
+  gap: 8px;
+}
+
+.brief-nav-btn {
+  background: #FFFFFF;
+  border: 2px solid var(--brief-ink);
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-family: var(--font-brief-display);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: var(--brief-ink);
+  cursor: pointer;
+  box-shadow: 2px 2px 0px var(--brief-ink);
+  transition: all 0.1s;
+}
+
+.brief-nav-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--brief-ink);
+}
+
+.brief-nav-btn.active {
+  background: var(--brief-mustard);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--brief-ink);
+}
+
+/* --- Hero KPI Poster Grid (Image 8 Composition) --- */
+.brief-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.brief-kpi-card {
+  background: #FFFFFF;
+  border: 3px solid var(--brief-ink);
+  border-radius: var(--radius-brief);
+  padding: 20px;
+  box-shadow: var(--shadow-brief);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.brief-kpi-card.cobalt { border-top: 8px solid var(--brief-cobalt); }
+.brief-kpi-card.leaf { border-top: 8px solid var(--brief-leaf); }
+.brief-kpi-card.mustard { border-top: 8px solid var(--brief-mustard); }
+.brief-kpi-card.sky { border-top: 8px solid var(--brief-sky); }
+
+.brief-kpi-tag {
+  display: inline-block;
+  background: var(--brief-ink);
+  color: #FFFFFF;
+  font-family: var(--font-terminal);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.brief-kpi-val {
+  font-family: var(--font-brief-display);
+  font-size: 32px;
+  line-height: 1.1;
+  color: var(--brief-ink);
+  margin-bottom: 4px;
+}
+
+.brief-kpi-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #4A453A;
+  margin-bottom: 12px;
+}
+
+/* PRD 7.2.4 Rule 1: Every Brief card has a Terminal-style monospace evidence footnote */
+.brief-evidence-footnote {
+  font-family: var(--font-terminal);
+  font-size: 9px;
+  color: #7A7264;
+  border-top: 1px solid #E6DEC2;
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Highlight Narrative Callout (Surplus-while-Borrowing Detector) */
+.brief-detector-banner {
+  background: #FFFFFF;
+  border: 3px solid var(--brief-ink);
+  border-radius: var(--radius-brief);
+  box-shadow: var(--shadow-brief);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.detector-badge {
+  background: var(--brief-mustard);
+  border: 2px solid var(--brief-ink);
+  font-family: var(--font-brief-display);
+  font-size: 16px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  box-shadow: 2px 2px 0px var(--brief-ink);
+  white-space: nowrap;
+}
+
+.detector-narrative {
+  flex: 1;
+}
+
+.detector-narrative h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--brief-ink);
+  margin-bottom: 4px;
+}
+
+.detector-narrative p {
+  font-size: 13px;
+  color: #4A453A;
+  line-height: 1.5;
+}
+
+.detector-action-btn {
+  background: var(--brief-cobalt);
+  color: #FFFFFF;
+  border: 2px solid var(--brief-ink);
+  font-family: var(--font-brief-display);
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  box-shadow: 3px 3px 0px var(--brief-ink);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   THE MOVING METAPHOR: ONBOARDING TRUCK & WAVE TRACKER (Image 8 Analogue)
+   "We're moving [entity] onto Treasury Command"
+   ========================================================================== */
+
+.brief-onboarding-section {
+  background: #FFFFFF;
+  border: 3px solid var(--brief-ink);
+  border-radius: var(--radius-brief);
+  box-shadow: var(--shadow-brief);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.onboarding-hero-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.onboarding-hero-head h2 {
+  font-family: var(--font-brief-display);
+  font-size: 32px;
+  color: var(--brief-cobalt);
+  letter-spacing: -0.5px;
+}
+
+/* Illustrated Truck Canvas / Container */
+.truck-illustration-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #FAF5E4;
+  border: 2px dashed var(--brief-ink);
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.truck-svg {
+  width: 520px;
+  height: 190px;
+}
+
+/* 7 Cargo Boxes List (The 7 Onboarding Items PRD 6.11 ON-1) */
+.cargo-boxes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.cargo-box-card {
+  background: #FFFFFF;
+  border: 2px solid var(--brief-ink);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  box-shadow: 2px 2px 0px var(--brief-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cargo-box-card.complete {
+  background: rgba(46, 158, 79, 0.1);
+  border-color: var(--brief-leaf);
+}
+
+.cargo-box-num {
+  font-family: var(--font-terminal);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--brief-cobalt);
+}
+
+.cargo-box-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brief-ink);
+}
+
+.cargo-progress-bar {
+  height: 6px;
+  background: #E6DEC2;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  border: 1px solid var(--brief-ink);
+}
+
+.cargo-progress-fill {
+  height: 100%;
+  background: var(--brief-leaf);
+}
+
+/* Wave Route Map */
+.wave-route-map {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 24px 10px;
+}
+
+.wave-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.wave-node-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 3px solid var(--brief-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-brief-display);
+  font-size: 16px;
+  box-shadow: 2px 2px 0px var(--brief-ink);
+}
+
+.wave-step.completed .wave-node-circle {
+  background: var(--brief-leaf);
+  color: #FFFFFF;
+}
+
+.wave-step.active .wave-node-circle {
+  background: var(--brief-mustard);
+  color: var(--brief-ink);
+  transform: scale(1.15);
+}
+
+.wave-step-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  max-width: 140px;
+}

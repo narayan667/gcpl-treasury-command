@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GCPL Treasury Command // Global Treasury Operating Platform</title>
+  <!-- Design System Tokens & Register Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="css/canvas.css">
+  <link rel="stylesheet" href="css/console.css">
+  <link rel="stylesheet" href="css/terminal.css">
+  <link rel="stylesheet" href="css/brief.css">
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Top Bar Navigation Frame (PRD Section 3.1 & 7.3) -->
+    <header class="top-header">
+      <div class="brand-section">
+        <div class="brand-logo">
+          <div class="brand-icon">TC</div>
+          <span>GCPL TREASURY COMMAND</span>
+        </div>
+        <span class="version-badge">v2.0 // STABLE</span>
+        <div class="breadcrumb-path">
+          <span class="breadcrumb-segment" id="breadcrumb-root">ROOT</span>
+          <span>/</span>
+          <span class="breadcrumb-segment">GTC</span>
+          <span>/</span>
+          <span class="breadcrumb-segment" id="breadcrumb-entity" style="color: var(--accent);">GCPL-UK</span>
+        </div>
+      </div>
+
+      <!-- Four-Register Segmented Switcher (PRD Section 3.1 & 7.2) -->
+      <div class="register-switcher">
+        <button class="register-tab-btn active" data-reg="canvas">
+          <span>CANVAS</span>
+          <span class="badge-pill">NODE</span>
+        </button>
+        <button class="register-tab-btn" data-reg="console">
+          <span>CONSOLE</span>
+          <span class="badge-pill">ESTATE</span>
+        </button>
+        <button class="register-tab-btn" data-reg="terminal">
+          <span>TERMINAL</span>
+          <span class="badge-pill">OPS</span>
+        </button>
+        <button class="register-tab-btn" data-reg="brief">
+          <span>BRIEF</span>
+          <span class="badge-pill">CFO</span>
+        </button>
+        <button class="register-tab-btn" data-reg="cockpit">
+          <span>COCKPIT</span>
+          <span class="badge-pill">LOCAL</span>
+        </button>
+      </div>
+
+      <!-- Controls, Persona Scope & System Indicators -->
+      <div class="header-actions">
+        <!-- Currency Converter Toggle -->
+        <button class="currency-toggle-btn" id="currency-toggle-btn" title="Toggle Reporting Currency (USD ⇄ INR with Lakh/Crore)">
+          CURR: USD ⇄
+        </button>
+
+        <!-- Persona Role Switcher (ABAC Scope PRD 2.1 & 2.3) -->
+        <div class="persona-selector-wrap">
+          <span class="persona-label">PERSONA:</span>
+          <select class="persona-select" id="persona-select">
+            <option value="CFO">Anita Desai (CFO // Whole Group)</option>
+            <option value="Group Treasurer">Anand Mehta (Group Treasurer // Whole Group)</option>
+            <option value="Front Office Dealer">Sunil Varma (GTC Dealer // Front Office)</option>
+            <option value="Regional Lead EMEA">Fiona MacLeod (Regional Lead // EMEA Scope)</option>
+            <option value="Local Coordinator UK">Edward Thornton (Local Lead // UK Scope)</option>
+            <option value="Local Coordinator US">Brian O'Connor (Local Lead // US Scope)</option>
+            <option value="Local Coordinator ID">Budi Santoso (Local Lead // Indonesia Scope)</option>
+            <option value="Risk and Control Analyst">Priya Sharma (Middle Office // Limits & SoD)</option>
+            <option value="Operations Specialist">Vikram Patil (Back Office // Settlements)</option>
+            <option value="Internal Auditor">Sunita Rao (Internal Audit // Read-Only)</option>
+            <option value="IT Administrator">Rajesh Kumar (IT Admin // Platform)</option>
+          </select>
+        </div>
+
+        <!-- Status Chips -->
+        <div class="status-chip ok" title="All 26 banking connections healthy">FEEDS: 26/26 OK</div>
+        <div class="status-chip warn" title="4 accounts have balances older than threshold">4 STALE</div>
+
+        <!-- Command Palette Quick Trigger -->
+        <button class="cmd-k-trigger" id="cmd-k-btn" title="Open Command Palette (Cmd+K)">
+          <span>SEARCH</span>
+          <kbd>⌘K</kbd>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Dynamic Workspace Surfaces -->
+    <main class="main-workspace">
+      <!-- 1. Canvas Register Surface (Default) -->
+      <div class="register-surface active" id="surface-canvas">
+        <div id="canvas-graph-container" style="flex: 1; height: 100%; width: 100%; display: flex;"></div>
+        <div id="canvas-workbench-container" style="flex: 1; height: 100%; width: 100%; display: none;"></div>
+        <div id="canvas-workflow-container" style="flex: 1; height: 100%; width: 100%; display: none;"></div>
+      </div>
+
+      <!-- 2. Console Register Surface -->
+      <div class="register-surface" id="surface-console"></div>
+
+      <!-- 3. Terminal Register Surface -->
+      <div class="register-surface" id="surface-terminal"></div>
+
+      <!-- 4. Brief Register Surface -->
+      <div class="register-surface" id="surface-brief"></div>
+
+      <!-- 5. Local Cockpit Surface (Subsidiary View) -->
+      <div class="register-surface" id="surface-cockpit"></div>
+    </main>
+  </div>
+
+  <!-- Non-Removable Synthetic Data Watermark Ribbon (PRD GLG-30 & UI-32) -->
+  <div class="watermark-ribbon">
+    ⚠ SYNTHETIC DATA // DEMO TENANT FOR EY CAFTA 2026 // DO NOT RELY FOR LIVE TRANSFERS
+  </div>
+
+  <!-- Slide-Over Entity 360 Drawer (PRD 4.7) -->
+  <div class="drawer-backdrop" id="entity-360-backdrop"></div>
+  <aside class="entity-drawer" id="entity-360-drawer">
+    <div class="drawer-header">
+      <div class="drawer-title-area">
+        <h2 id="entity-drawer-title">Entity 360</h2>
+        <div class="drawer-subtitle" id="entity-drawer-subtitle">Complete Financial Picture</div>
+      </div>
+      <button class="drawer-close-btn" id="entity-drawer-close" title="Close Drawer">✕</button>
+    </div>
+    <!-- 13 Comprehensive Tabs Bar -->
+    <div class="drawer-tabs-nav" id="entity-drawer-tabs"></div>
+    <div class="drawer-body" id="entity-drawer-body"></div>
+  </aside>
+
+  <!-- Command Palette Modal (Ctrl+K / Cmd+K) -->
+  <div class="modal-overlay" id="cmd-palette-modal">
+    <div class="cmd-palette-box">
+      <div class="cmd-palette-input-wrap">
+        <span>❯</span>
+        <input type="text" class="cmd-palette-input" id="cmd-palette-input" placeholder="Type a command, entity, account, or lens (/entity, /lens, /workflow)..." autocomplete="off">
+      </div>
+      <div class="cmd-palette-results" id="cmd-palette-results"></div>
+    </div>
+  </div>
+
+  <!-- Action Confirmation Modal (SoD Verification) -->
+  <div class="modal-overlay" id="action-confirm-modal">
+    <div class="confirm-modal-box">
+      <div class="confirm-header" id="modal-action-title">Confirm Treasury Action</div>
+      <div class="confirm-body">
+        <div id="modal-action-body"></div>
+        <div style="margin-top: 12px;">
+          <label style="font-size: 11px; color: var(--text-2); display: block; margin-bottom: 4px;">Audited Justification Reason (Required):</label>
+          <input type="text" id="modal-action-reason" class="cmd-palette-input" style="background: var(--bg-2); border: 1px solid var(--line-1); border-radius: var(--radius-xs); padding: 6px 10px; width: 100%;" placeholder="e.g. Quarterly working capital replenishment per policy...">
+        </div>
+      </div>
+      <div class="confirm-footer">
+        <button class="btn-secondary" id="modal-cancel-btn">Cancel</button>
+        <button class="btn-primary" id="modal-confirm-btn">Execute Action</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Mount -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Bootstrap Application Script (Self-Contained Unified Bundle) -->
+  <script src="bundle.js"></script>
+</body>
+</html>

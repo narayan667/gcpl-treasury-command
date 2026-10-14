@@ -1,0 +1,620 @@
+/* ==========================================================================
+   GCPL TREASURY COMMAND - CANVAS REGISTER STYLES
+   Node-Based Semantic UI: Group Liquidity Graph, Nodes, Ports, Pooling Workbench
+   Conforms to PRD Section 4, Section 5, and Section 7.2.1
+   ========================================================================== */
+
+.canvas-layout {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Floating Graph Toolbar (Image 3 & 4 Pattern) --- */
+.canvas-toolbar {
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  background: var(--bg-1);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 100;
+}
+
+.canvas-tool-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-2);
+  font-family: var(--font-terminal);
+  font-size: 11px;
+  padding: 5px 8px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s;
+}
+
+.canvas-tool-btn:hover {
+  background: var(--bg-3);
+  color: var(--accent);
+}
+
+.canvas-tool-btn.active {
+  background: var(--bg-3);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.toolbar-separator {
+  width: 1px;
+  height: 18px;
+  background: var(--line-1);
+  margin: 0 2px;
+}
+
+/* Lens Selector Strip (PRD 4.5: 8 Lenses) */
+.lens-bar {
+  position: absolute;
+  top: 14px;
+  left: 360px;
+  background: var(--bg-1);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  z-index: 100;
+}
+
+.lens-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-3);
+  font-family: var(--font-terminal);
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.1s;
+}
+
+.lens-btn:hover {
+  color: var(--text-1);
+  background: var(--bg-2);
+}
+
+.lens-btn.active {
+  background: var(--bg-3);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.lens-btn kbd {
+  font-size: 9px;
+  opacity: 0.6;
+}
+
+/* Sub-View Switcher (Graph vs Pooling Workbench vs Workflow Studio) */
+.canvas-subview-strip {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: var(--bg-1);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 100;
+}
+
+.subview-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-2);
+  font-family: var(--font-terminal);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+}
+
+.subview-btn.active {
+  background: var(--accent);
+  color: #0B0E12;
+}
+
+/* --- Interactive Graph Canvas SVG --- */
+.graph-viewport {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-0);
+  background-image: radial-gradient(circle, var(--line-1) 1px, transparent 1px);
+  background-size: 24px 24px;
+  cursor: grab;
+  position: relative;
+  overflow: hidden;
+}
+
+.graph-viewport:active {
+  cursor: grabbing;
+}
+
+.graph-svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Minimap (Bottom Left - Image 1 & 3 Pattern) */
+.graph-minimap {
+  position: absolute;
+  bottom: 24px;
+  left: 18px;
+  width: 170px;
+  height: 110px;
+  background: var(--bg-1);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  z-index: 100;
+}
+
+.minimap-title {
+  padding: 3px 6px;
+  font-family: var(--font-terminal);
+  font-size: 9px;
+  color: var(--text-3);
+  border-bottom: 1px solid var(--line-1);
+  background: var(--bg-2);
+}
+
+.minimap-content {
+  width: 100%;
+  height: calc(100% - 18px);
+  position: relative;
+}
+
+.minimap-lens-rect {
+  position: absolute;
+  border: 1px solid var(--accent);
+  background: rgba(92, 225, 242, 0.1);
+  pointer-events: none;
+}
+
+/* --- Node Anatomy (PRD 4.3) --- */
+.node-card {
+  position: absolute;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  user-select: none;
+}
+
+.node-card:hover {
+  border-color: var(--line-3);
+  box-shadow: var(--shadow-lg);
+}
+
+.node-card.selected {
+  border-color: #FFFFFF !important;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4), var(--shadow-lg);
+}
+
+.node-card.error-breach {
+  border-color: var(--err) !important;
+  box-shadow: 0 0 0 2px rgba(255, 92, 108, 0.3);
+}
+
+.node-card.stale-warning {
+  border-style: dashed;
+  border-color: var(--warn);
+}
+
+.node-card.proposed {
+  border-style: dashed;
+  border-color: var(--pending);
+}
+
+/* GTC HQ Node (N01) */
+.node-gtc {
+  width: 320px;
+  border: 2px solid var(--accent);
+  background: linear-gradient(180deg, #1C232E 0%, #151A22 100%);
+}
+
+/* Regional Hub Node (N02) */
+.node-hub {
+  width: 250px;
+  background: var(--bg-2);
+}
+
+/* Entity Node (N03) */
+.node-entity {
+  width: 270px;
+  background: var(--bg-2);
+}
+
+.node-header {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+  background: var(--bg-3);
+}
+
+.node-title-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.node-jurisdiction-chip {
+  font-family: var(--font-terminal);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: var(--radius-xs);
+  background: var(--bg-1);
+  border: 1px solid var(--line-2);
+  color: var(--accent);
+}
+
+.node-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.node-body {
+  padding: 10px 12px;
+}
+
+.node-cash-headline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.node-cash-amount {
+  font-family: var(--font-terminal);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-1);
+}
+
+.node-cash-curr {
+  font-family: var(--font-terminal);
+  font-size: 11px;
+  color: var(--text-3);
+  margin-left: 4px;
+}
+
+.node-usd-eq {
+  font-family: var(--font-terminal);
+  font-size: 10px;
+  color: var(--text-3);
+}
+
+/* Mini table inside node (5 categories) */
+.node-mini-table {
+  width: 100%;
+  font-size: 10px;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+}
+
+.node-mini-table td {
+  padding: 2px 0;
+  color: var(--text-2);
+}
+
+.node-mini-table td.val {
+  text-align: right;
+  font-family: var(--font-terminal);
+  color: var(--text-1);
+}
+
+.node-sparkline-wrap {
+  height: 24px;
+  width: 100%;
+  margin-top: 4px;
+  background: var(--bg-1);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+}
+
+.node-footer {
+  padding: 6px 12px;
+  border-top: 1px solid var(--line-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-terminal);
+  font-size: 9px;
+  color: var(--text-3);
+  background: rgba(0,0,0,0.15);
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+/* Typed Ports (Circle glyphs on edges) */
+.port-handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-1);
+  cursor: crosshair;
+  z-index: 10;
+  transition: transform 0.1s;
+}
+
+.port-handle:hover {
+  transform: scale(1.4);
+}
+
+.port-cash { background-color: var(--port-cash); }
+.port-forecast { background-color: var(--port-forecast); }
+.port-exposure { background-color: var(--port-exposure); }
+.port-instruction { background-color: var(--port-instruction); }
+.port-approval { background-color: var(--port-approval); }
+.port-evidence { background-color: var(--port-evidence); }
+.port-policy { background-color: var(--port-policy); }
+
+.port-in { left: -6px; }
+.port-out { right: -6px; }
+
+/* Backdrop Group Regions (PRD 4.2 N13) */
+.backdrop-group {
+  position: absolute;
+  border-radius: var(--radius-lg);
+  border: 1px dashed;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.backdrop-header {
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  font-family: var(--font-terminal);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   POOLING WORKBENCH (PRD Section 4.8)
+   Split-screen: Candidates List | Proposal Canvas | Inspector | Validation Log
+   ========================================================================== */
+
+.workbench-layout {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  background: var(--bg-0);
+  overflow: hidden;
+}
+
+/* Left: Candidates Column */
+.wb-candidates-col {
+  width: 320px;
+  background: var(--bg-1);
+  border-right: 1px solid var(--line-2);
+  display: flex;
+  flex-direction: column;
+}
+
+.wb-col-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line-1);
+  background: var(--bg-2);
+  font-family: var(--font-terminal);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wb-candidates-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wb-candidate-card {
+  background: var(--bg-2);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.wb-candidate-card:hover {
+  border-color: var(--line-3);
+  background: var(--bg-3);
+}
+
+.wb-candidate-card.selected {
+  border-color: var(--accent);
+  background: rgba(92, 225, 242, 0.05);
+}
+
+.wb-candidate-card.surplus { border-left: 3px solid var(--ok); }
+.wb-candidate-card.need { border-left: 3px solid var(--warn); }
+
+/* Center: Visual Proposal Canvas */
+.wb-canvas-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-0);
+  position: relative;
+}
+
+.wb-proposal-interactive {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  overflow: auto;
+}
+
+/* Bottom: Terminal Validation Log (PRD 4.8 Constraint Checks) */
+.wb-validation-log {
+  height: 160px;
+  background: #080A0D;
+  border-top: 1px solid var(--line-2);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-terminal);
+  font-size: 11px;
+}
+
+.wb-log-header {
+  padding: 6px 14px;
+  background: var(--bg-1);
+  border-bottom: 1px solid var(--line-1);
+  font-size: 10px;
+  color: var(--text-3);
+  display: flex;
+  justify-content: space-between;
+}
+
+.wb-log-stream {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.log-entry {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.log-tag {
+  font-weight: 700;
+  font-size: 10px;
+}
+
+.log-tag.ok { color: var(--ok); }
+.log-tag.warn { color: var(--warn); }
+.log-tag.err { color: var(--err); }
+
+/* Right: Parameter Inspector (Image 1 & 3 Pattern) */
+.wb-inspector-col {
+  width: 340px;
+  background: var(--bg-1);
+  border-left: 1px solid var(--line-2);
+  display: flex;
+  flex-direction: column;
+}
+
+.wb-param-group {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line-1);
+}
+
+.wb-param-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-2);
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wb-slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wb-slider {
+  flex: 1;
+  accent-color: var(--accent);
+}
+
+.wb-slider-val {
+  font-family: var(--font-terminal);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 70px;
+  text-align: right;
+}
+
+.wb-calc-box {
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  margin-top: 10px;
+}
+
+.wb-calc-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-bottom: 4px;
+  color: var(--text-2);
+}
+
+.wb-calc-row.total {
+  border-top: 1px solid var(--line-1);
+  padding-top: 6px;
+  font-weight: 700;
+  color: var(--ok);
+  font-size: 12px;
+}

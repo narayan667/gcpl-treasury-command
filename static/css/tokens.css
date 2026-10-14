@@ -1,0 +1,107 @@
+/* ==========================================================================
+   GCPL TREASURY COMMAND - DESIGN TOKENS
+   Conforms to PRD v2.0 Section 7.4 (Dark Default & Four UI Registers)
+   ========================================================================== */
+
+:root {
+  /* --- Neutrals (Dark Default) --- */
+  --bg-0: #0B0E12; /* App background */
+  --bg-1: #11151B; /* Panels & sidebars */
+  --bg-2: #181D25; /* Nodes, cards & containers */
+  --bg-3: #212833; /* Hover, raised surfaces */
+  --bg-4: #2A3342; /* Modals & dropdowns */
+
+  --line-1: #262E39; /* Hairlines & subtle borders */
+  --line-2: #36404E; /* Strong borders & dividers */
+  --line-3: #4A5768; /* Active outlines */
+
+  --text-1: #E6EAF0; /* Primary high-contrast text */
+  --text-2: #A3AEBB; /* Secondary explanatory text */
+  --text-3: #6B7787; /* Tertiary labels & placeholders */
+  --text-inverse: #0B0E12;
+
+  --accent: #5CE1F2; /* Terminal accent, focus, selected row (Cyan) */
+  --accent-glow: rgba(92, 225, 242, 0.25);
+
+  /* --- Status (Reserved strictly for state) --- */
+  --ok: #3DDC97;          /* Healthy, matched, within limits */
+  --warn: #FF8A3D;        /* Needs attention, near threshold */
+  --err: #FF5C6C;         /* Breach, failure, failed control */
+  --pending: #B58CFF;     /* Awaiting approval or action */
+  --stale: #7B8696;       /* Data older than configured threshold */
+  --restricted: #7FA3C7;  /* Restricted or unavailable cash */
+
+  /* --- Typed Ports & Semantic Edges (PRD 4.4 & 7.4) --- */
+  --port-cash: #F2C94C;       /* Cash (P01 / E04 Gold) */
+  --port-forecast: #2DD4BF;   /* Forecast (P02 / E03 Teal) */
+  --port-exposure: #F472B6;   /* Exposure (P03 Pink) */
+  --port-instruction: #60A5FA;/* Instruction (P04 Blue) */
+  --port-approval: #B58CFF;   /* Approval (P05 / E11 Violet) */
+  --port-evidence: #9CA3AF;   /* Evidence (P06 Grey) */
+  --port-policy: #FFFFFF;     /* Policy (P07 White) */
+
+  /* --- Region Backdrop Tints --- */
+  --region-asia: rgba(124, 140, 248, 0.08);
+  --region-asia-border: rgba(124, 140, 248, 0.35);
+  --region-emea: rgba(216, 183, 122, 0.08);
+  --region-emea-border: rgba(216, 183, 122, 0.35);
+  --region-na: rgba(156, 191, 122, 0.08);
+  --region-na-border: rgba(156, 191, 122, 0.35);
+
+  /* --- Console Component Type Colors --- */
+  --cmp-erp: #3B5BA9;
+  --cmp-bank: #2E7D6B;
+  --cmp-integration: #5B6472;
+  --cmp-core: #7A4FB3;
+  --cmp-reporting: #A35A2E;
+  --cmp-account: #4A6A8A;
+  --cmp-role: #8A6A4A;
+
+  /* --- Brief Register Palette (Semi-Maximalist) --- */
+  --brief-cream: #F6EFD2;
+  --brief-cobalt: #2F6FE4;
+  --brief-leaf: #2E9E4F;
+  --brief-mustard: #F4C430;
+  --brief-sky: #4DB6F0;
+  --brief-ink: #15130F;
+  --brief-card-bg: #FFFFFF;
+  --brief-border: #15130F;
+
+  /* --- Typography Families --- */
+  --font-canvas: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  --font-console: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+  --font-console-mono: "IBM Plex Mono", "SF Mono", monospace;
+  --font-terminal: "JetBrains Mono", "SF Mono", Menlo, Monaco, Consolas, monospace;
+  --font-brief-display: "Impact", "Anton", "Arial Black", sans-serif;
+  --font-brief-body: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+
+  /* --- Spacing & Layout --- */
+  --header-height: 52px;
+  --sidebar-width: 240px;
+  --drawer-width: 480px;
+
+  /* --- Radii --- */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+  --radius-brief: 20px;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.6);
+  --shadow-brief: 4px 4px 0px var(--brief-ink);
+}
+
+/* Stale balance hatch pattern */
+.hatch-stale {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(123, 134, 150, 0.15),
+    rgba(123, 134, 150, 0.15) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
